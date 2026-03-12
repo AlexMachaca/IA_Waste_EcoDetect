@@ -1,0 +1,16 @@
+{
+  "name": "EcoDetect Abancay",
+  "short_name": "EcoDetect",
+  "description": "IA para reconocimiento de residuos sólidos (plastico, papel, vidrio, organico) en Abancay, Perú.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "icons": [
+    {
+      "src": "/static/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

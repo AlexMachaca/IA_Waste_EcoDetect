@@ -10,7 +10,7 @@ from PIL import Image
 st.set_page_config(page_title="EcoDetect", page_icon="♻️", layout="wide")
 
 # Inyectar PWA (Manifest y Service Worker)
-st.markdown('<link rel="manifest" href="/static/manifest.json">', unsafe_allow_html=True)
+st.markdown('<link rel="manifest" href="static/manifest.json">', unsafe_allow_html=True)
 
 # 2. Inicializar memoria (Session State) para el conteo
 if "counts" not in st.session_state:

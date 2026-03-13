@@ -9,8 +9,36 @@ from PIL import Image
 # 1. Configuración de pantalla y PWA
 st.set_page_config(page_title="EcoDetect", page_icon="♻️", layout="wide")
 
-# Inyectar PWA (Manifest y Service Worker)
-st.markdown('<link rel="manifest" href="static/manifest.json">', unsafe_allow_html=True)
+# Inyectar PWA (Meta tags, Manifest y Service Worker)
+st.markdown("""
+    <!-- Meta tags para PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EcoDetect">
+    <link rel="apple-touch-icon" href="/static/logo.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2e7d32">
+    <meta name="description" content="IA para reconocimiento de residuos sólidos en Abancay, Perú.">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/sw.js')
+                    .then(reg => console.log('SW registered:', reg.scope))
+                    .catch(err => console.log('SW registration failed:', err));
+            });
+        }
+    </script>
+    
+    <style>
+        /* Ocultar toolbar de Streamlit en móvil */
+        .stToolbar { display: none !important; }
+    </style>
+""", unsafe_allow_html=True)
 
 # 2. Inicializar memoria (Session State) para el conteo
 if "counts" not in st.session_state:

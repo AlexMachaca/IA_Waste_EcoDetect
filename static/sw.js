@@ -1,8 +1,8 @@
 const CACHE_NAME = 'ecodetect-v1';
 const ASSETS = [
   '/',
-  'static/manifest.json',
-  'static/logo.png'
+  '/static/manifest.json',
+  '/static/logo.png'
 ];
 
 self.addEventListener('install', (e) => {

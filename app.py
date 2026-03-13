@@ -45,10 +45,10 @@ with tab1:
             local_counts = {"Plástico": 0, "Papel": 0, "Orgánico": 0, "Vidrio": 0}
             for box in results[0].boxes:
                 label = model.names[int(box.cls)].lower()
-                if "plastic" in label: local_counts["Plástico"] += 1
-                elif "pape" in label: local_counts["Papel"] += 1
-                elif "organi" in label: local_counts["Orgánico"] += 1
-                elif "vidrio" in label or "glass" in label: local_counts["Vidrio"] += 1
+                if "plastico" in label: local_counts["Plástico"] += 1
+                elif "papel" in label: local_counts["Papel"] += 1
+                elif "organico" in label: local_counts["Orgánico"] += 1
+                elif "vidrio" in label: local_counts["Vidrio"] += 1
             
             # Guardamos el conteo en session_state para que la web lo vea
             st.session_state.counts = local_counts
@@ -95,10 +95,10 @@ with tab2:
         upload_counts = {"Plástico": 0, "Papel": 0, "Orgánico": 0, "Vidrio": 0}
         for box in results_upload[0].boxes:
             label = model.names[int(box.cls)].lower()
-            if "plastic" in label: upload_counts["Plástico"] += 1
-            elif "paper" in label: upload_counts["Papel"] += 1
-            elif "organi" in label: upload_counts["Orgánico"] += 1
-            elif "vidrio" in label or "glass" in label: upload_counts["Vidrio"] += 1
+            if "plastico" in label: upload_counts["Plástico"] += 1
+            elif "papel" in label: upload_counts["Papel"] += 1
+            elif "organico" in label: upload_counts["Orgánico"] += 1
+            elif "vidrio" in label: upload_counts["Vidrio"] += 1
             
         st.write("### Objetos encontrados:")
         st.json(upload_counts)
